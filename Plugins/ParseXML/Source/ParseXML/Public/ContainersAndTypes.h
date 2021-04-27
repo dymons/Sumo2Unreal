@@ -18,7 +18,7 @@ typedef std::unique_ptr<SimpleEdge> SimpleEdgePtr;
 typedef std::unique_ptr<walkingArea> walkingAreaPtr;
 typedef std::unique_ptr<trafficLight> trafficLightPtr;
 #pragma warning(suppress : 4996)
-typedef std::tr1::shared_ptr<SimpleSpline> SimpleSplinePtr;
+typedef std::shared_ptr<SimpleSpline> SimpleSplinePtr;
 
 //Node Map, Edge Map, walkingArea and trafficLight Map
 typedef TMap<const TCHAR*, SimpleNodePtr> NodeTMap;
