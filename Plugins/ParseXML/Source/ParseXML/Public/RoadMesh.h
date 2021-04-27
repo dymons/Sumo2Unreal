@@ -17,12 +17,11 @@ class PARSEXML_API ARoadMesh : public AActor
 public:	
 	// Sets default values for this actor's properties
 	ARoadMesh();
-	~ARoadMesh();
 
-	UPROPERTY(VisibleAnywhere, Category = ProcMesh)
+	UPROPERTY(EditAnywhere, Category = ProcMesh)
 	UMaterial* Material0;
 
-	UPROPERTY(VisibleAnywhere, Category = ProcMesh)
+	UPROPERTY(EditAnywhere, Category = ProcMesh)
 	UMaterial* Material1;
 
 	UPROPERTY(EditAnywhere, Category = ProcMesh)

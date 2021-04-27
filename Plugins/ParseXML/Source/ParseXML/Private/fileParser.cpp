@@ -16,13 +16,6 @@ UfileParser::UfileParser(const TCHAR* selectedFile) : selectedXMLFile(selectedFi
 	FRotator Rotation = FRotator(0.0f, 0.0f, 0.0f);
 	FActorSpawnParameters SpawnParameters;
 	getAllActorsOfClass();
-	World->SpawnActor<AAtmosphericFog>(Location, Rotation, SpawnParameters);
-	Location.Z = 100000.0f;
-	ASkyLight* Skylight = World->SpawnActor<ASkyLight>(Location, Rotation, SpawnParameters);
-	if (Skylight !=nullptr) {
-		Skylight->GetLightComponent()->SetIntensity(5.0f);
-		GEditor->BuildLighting(LightOptions);
-	}
 }
 
 UfileParser::~UfileParser()
@@ -45,8 +38,8 @@ void UfileParser::getAllActorsOfClass() {
 	destroyFoundActors();
 	UGameplayStatics::GetAllActorsOfClass(World, ASkyLight::StaticClass(), FoundActors);
 	destroyFoundActors();
-	UGameplayStatics::GetAllActorsOfClass(World, AStopSignMesh::StaticClass(), FoundActors);
-	destroyFoundActors();
+	// UGameplayStatics::GetAllActorsOfClass(World, AStopSignMesh::StaticClass(), FoundActors);
+	// destroyFoundActors();
 }
 
 FString UfileParser::getTempNodeID() {
@@ -600,9 +593,9 @@ void UfileParser::InitializeTrafficControl(const TCHAR* controlType)//spawn two 
 			trafficControl1Location = currentWalkingAreaObject->trafficControlLocationCalculator();
 			trafficControlRotation = currentWalkingAreaObject->stopSignRotationCalculator();
 			FTransform SpawnTransform(trafficControlRotation, trafficControl1Location, stopSignScale);
-			AStopSignMesh* MyDeferredStopSign = Cast<AStopSignMesh>(UGameplayStatics::BeginDeferredActorSpawnFromClass(World, AStopSignMesh::StaticClass(), SpawnTransform)); //Downcasting
-			UGameplayStatics::FinishSpawningActor(MyDeferredStopSign, SpawnTransform); //deferred actor spawning because it gives us the option to change scale of actor when needed. 
-			StopSignContainer.StopSignMap.Add(*currentKey, MyDeferredStopSign);
+			// AStopSignMesh* MyDeferredStopSign = Cast<AStopSignMesh>(UGameplayStatics::BeginDeferredActorSpawnFromClass(World, AStopSignMesh::StaticClass(), SpawnTransform)); //Downcasting
+			// UGameplayStatics::FinishSpawningActor(MyDeferredStopSign, SpawnTransform); //deferred actor spawning because it gives us the option to change scale of actor when needed. 
+			// StopSignContainer.StopSignMap.Add(*currentKey, MyDeferredStopSign);
 		}
 	}	
 }
