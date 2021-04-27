@@ -25,7 +25,7 @@ ARoadMesh::ARoadMesh()
     mesh = CreateDefaultSubobject<UProceduralMeshComponent>(TEXT("GeneratedMesh"));
     mesh->AttachToComponent(GetRootComponent(), FAttachmentTransformRules::KeepRelativeTransform);
     static const ConstructorHelpers::FObjectFinder<UMaterial> SideWalkMaterial(
-        TEXT("Material'/Game/finalRoadMaterials/Sidewalk_Final_MAT.Sidewalk_Final_MAT'"));
+        TEXT("Material'/Game/Materials/Road/Asphalt_MAT.Asphalt_MAT'"));
     static const ConstructorHelpers::FObjectFinder<UMaterial> RoadMaterial(
         TEXT("Material'/Game/Materials/Road/Asphalt_MAT.Asphalt_MAT'"));
 
